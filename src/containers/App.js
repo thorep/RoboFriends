@@ -7,12 +7,10 @@ import "./app.css";
 const API_URL = "https://jsonplaceholder.typicode.com/users";
 
 const App = (_) => {
-  //STATE
   const [searchField, setSearchField] = useState("");
   const [robotsArray, setRobotsArray] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
-  //Mount unmount
   useEffect(() => {
     fetch(API_URL)
       .then((response) => response.json())
