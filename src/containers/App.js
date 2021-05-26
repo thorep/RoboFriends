@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import CardList from "../components/CardList";
 import SearchBox from "../components/SearchBox";
 import Scroll from "../components/Scroll";
+import ErrorBoundry from "../components/ErrorBoundry";
 import "./app.css";
 const API_URL = "https://jsonplaceholder.typicode.com/users";
 
@@ -39,7 +40,9 @@ const App = (_) => {
       <h1 className="f1">RoboFriends</h1>
       <SearchBox searchChange={onSearchChange} />
       <Scroll>
-        <CardList robots={filteredRobots} />
+        <ErrorBoundry>
+          <CardList robots={filteredRobots} />
+        </ErrorBoundry>
       </Scroll>
     </div>
   );
